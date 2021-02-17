@@ -1,0 +1,45 @@
+.toDo__list {
+    margin-bottom: 30px;
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      padding: 10px 12px;
+      &.active {
+        background: #fff;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+        border-radius: 4px; 
+        cursor: pointer;
+      }
+      i {
+        display: inline-flex;
+        margin-right: 10px;
+        svg {
+            path {
+                fill: #7c7c7c;
+            }
+        }
+      }
+      .badge {
+          width: 10px;
+          height: 10px;
+          margin-right: 8px;
+          border-radius: 5px;
+          &--green {
+              background-color: #428883;
+          }
+          &--blue {
+              background-color: #64C4ED;
+          }
+          &--pink {
+              background-color: #FFBBCC;
+          }
+          &--lime {
+              background-color: #B6E6BD;
+          }
+          &--purple {
+              background-color: #C355F5;
+          }
+      }
+    }
+  }
