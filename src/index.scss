@@ -24,11 +24,23 @@ body {
   border-radius: 10px;
   border: 1px solid #f4f6f8;
   font-size: 14px;
+  overflow: hidden;
   &__sidebar {
     background-color: #f4f6f8;
     width: 22%;
-    height: auto;
+    height: calc(100% - 120px);
     border-right: 1px solid #f1f1f1;
     padding: 60px 20px;
+  }
+}
+
+.field {
+  background: #fff;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 12px;
+  &:focus {
+    border-color: #a9a7a7;
   }
 }

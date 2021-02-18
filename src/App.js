@@ -1,5 +1,6 @@
 import './App.css';
 import List from "./components/List/index";
+import AddListButton from "./components/List/addListButton";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
             name: 'Все задачи',
             active: true
           }
-        ]}/>
+        ]}
+        />
         <List 
         items={[
           {
@@ -34,12 +36,10 @@ function App() {
           {
             color: 'lime',
             name: 'Коддинг'
-          },
-          {
-            color: 'purple',
-            name: 'Личное'
           }
-        ]}/>
+        ]}
+        isRemoveable/>
+        <AddListButton />
       </div>
       <div className="toDo__tasks"></div>
     </div>
