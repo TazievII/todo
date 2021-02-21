@@ -2,6 +2,8 @@ import './App.css';
 import List from "./components/List/index";
 import AddListButton from "./components/List/addListButton";
 
+import DB from "./assets/db.json";
+
 function App() {
   return (
     <div className="toDo">
@@ -39,7 +41,7 @@ function App() {
           }
         ]}
         isRemoveable/>
-        <AddListButton />
+        <AddListButton colors={ DB.colors }/>
       </div>
       <div className="toDo__tasks"></div>
     </div>

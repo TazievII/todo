@@ -1,5 +1,5 @@
 .toDo__list {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     .item__add-button {
         opacity: 0.5;
         &:hover {
@@ -26,27 +26,6 @@
             }
         }
       }
-      .badge {
-          width: 10px;
-          height: 10px;
-          margin-right: 8px;
-          border-radius: 5px;
-          &--green {
-              background-color: #428883;
-          }
-          &--blue {
-              background-color: #64C4ED;
-          }
-          &--pink {
-              background-color: #FFBBCC;
-          }
-          &--lime {
-              background-color: #B6E6BD;
-          }
-          &--purple {
-              background-color: #C355F5;
-          }
-      }
     }
   }
 .add-list-popup {
@@ -56,4 +35,31 @@
     background: #fff;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
+    padding: 18px;
+    position: relative;
+    &_colors {
+        margin-top: 12px;
+        display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    }
+    .button {
+        width: 100%;
+        margin-top: 15px;
+    }
+    .badge {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        &.active {
+          border: 2px solid #525252;
+        }
+    }
+    .add-list-popup-closeBtn {
+      position: absolute;
+      cursor: pointer;
+      top: -5px;
+      right: -10px;
+    }
 }
