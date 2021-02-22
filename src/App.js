@@ -1,10 +1,18 @@
-import './App.css';
+import { useState } from "react";
 import List from "./components/List/index";
 import AddListButton from "./components/List/addListButton";
+
+import './App.css';
 
 import DB from "./assets/db.json";
 
 function App() {
+  const [lists, setLists] = useState(
+    DB.lists.map(item => {
+      item.color = DB.colors.find(color => color.id === item.colorId).name;
+      return item;
+    })
+  );
   return (
     <div className="toDo">
       <div className="toDo__sidebar">
@@ -22,24 +30,7 @@ function App() {
         ]}
         />
         <List 
-        items={[
-          {
-            color: 'green',
-            name: 'Макет'
-          },
-          {
-            color: 'blue',
-            name: 'Фронтенд'
-          },
-          {
-            color: 'pink',
-            name: 'Проект'
-          },
-          {
-            color: 'lime',
-            name: 'Коддинг'
-          }
-        ]}
+        items={lists}
         isRemoveable/>
         <AddListButton colors={ DB.colors }/>
       </div>
