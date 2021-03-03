@@ -181,8 +181,8 @@ function App() {
               />
             ))}
         </Route>
-        <Route path="/lists/:id">
-          {lists && activeItem && (
+        <Route exact path="/lists/:id">
+          {activeItem && lists && (
             <Tasks
               list={activeItem}
               onAddTask={onAddTask}
