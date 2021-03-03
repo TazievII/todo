@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Route, useHistory } from 'react-router-dom';
 
-import { List, addListButton, Tasks } from './components';
+import { List, AddList, Tasks } from './components';
 
 function App() {
   const [lists, setLists] = useState(null);
@@ -163,7 +163,7 @@ function App() {
         ) : (
           'Загрузка...'
         )}
-        <addListButton onAdd={onAddList} colors={colors} />
+        <AddList onAdd={onAddList} colors={colors} />
       </div>
       <div className="todo__tasks">
         <Route exact path="/">
