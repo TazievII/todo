@@ -5,9 +5,26 @@ import closeSvg from '../../assets/img/close.svg';
 import List from "./index";
 
 
-const AddListButton = ({ colors }) => {
+const AddListButton = ({ colors, onAdd }) => {
     const [visible, setVisible] = useState(false);
-    const [colorCheck, setColorCheck] = useState(colors[0].id)
+    const [colorCheck, setColorCheck] = useState(colors[0].id);
+    const [inputValue, setInputValue] = useState('');
+    const closePopup = () => {
+        setVisible(false);
+        setInputValue('');
+        setColorCheck(colors[0].id);
+    };
+
+    const addList = () => {
+        if(!inputValue) {
+            alert('Введите название папки')
+            return;
+        }
+        const color = colors.find(c => c.id === colorCheck).name;
+        onAdd({id: Math.random(), name: inputValue, color});
+        closePopup();
+    };
+
     return (
         <Fragment>
             <List 
@@ -27,11 +44,16 @@ const AddListButton = ({ colors }) => {
             />
             {visible && <div className="add-list-popup">
                 <img 
-                onClick={ () => setVisible(false)}
+                onClick={closePopup}
                 src={closeSvg} 
                 alt="close" 
                 className="add-list-popup-closeBtn"/>
-                <input className='field' type='text' placeholder='Название папки'></input>
+                <input 
+                value={inputValue}
+                onChange={e => setInputValue(e.target.value)}
+                className='field' 
+                type='text' 
+                placeholder='Название папки'></input>
                 <div className="add-list-popup_colors">
                     {
                         colors.map(color => 
@@ -42,7 +64,7 @@ const AddListButton = ({ colors }) => {
                             className={colorCheck === color.id && 'active'}/>)
                     }
                 </div>
-                <button className='button'>Добавить папку</button>
+                <button onClick={addList} className='button'>Добавить папку</button>
             </div>}
         </Fragment>
     )
